@@ -24,7 +24,6 @@ Install-ADDSForest `
             -SafeModeAdministratorPassword $adminForestPassword `
             -DomainNetbiosName $netBiosName `
             -NoRebootOnCompletion `
-            -Force			
-Restart-Computer
+            -Force
 
 stop-transcript
