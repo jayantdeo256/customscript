@@ -7,9 +7,14 @@ New-NetFirewallRule -DisplayName "Allow RDP1" -Direction Inbound -LocalPort 4296
 restart-service -name TermService, SessionEnv,UmRdpService -force
 
 write-host "Adding ad forest"
-$domain = jayantdeo.local
+$domain = "jayantdeo.local"
 $adminForestPassword = 'Test@06112021'
 $netBiosName = $domain
+
+Add-WindowsFeature RSAT-AD-PowerShell, DNS, AD-Domain-Services -IncludeAllSubFeature -IncludeManagementTools
+
+Import-Module ServerManager
+Import-Module ADDSDeployment
 
 net user Administrator (New-Guid).Guid
 
