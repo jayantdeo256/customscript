@@ -31,4 +31,6 @@ Install-ADDSForest `
             -NoRebootOnCompletion `
             -Force
 
+Restart-Computer
+
 stop-transcript
