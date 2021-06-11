@@ -8,8 +8,8 @@ restart-service -name TermService, SessionEnv,UmRdpService -force
 
 write-host "Adding ad forest"
 $domain = "jayantdeo.local"
-$adminForestPassword = 'Test@06112021'
-$netBiosName = $domain
+$adminForestPassword = ConvertTo-SecureString -String 'Test@06112021' -AsPlainText -Force
+$netBiosName = "jayantdeo"
 
 Add-WindowsFeature RSAT-AD-PowerShell, DNS, AD-Domain-Services -IncludeAllSubFeature -IncludeManagementTools
 
